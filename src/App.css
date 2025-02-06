@@ -1,0 +1,141 @@
+/* Global Styles */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #1d2634;
+  color: #9e9ea4;
+}
+
+/* Grid Layout */
+.grid-container {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  grid-template-rows: 60px 1fr;
+  grid-template-areas:
+    "sidebar header"
+    "sidebar main";
+  height: 100vh;
+  /* max-height: 100vh;
+  overflow-y:  scroll ; */
+}
+
+/* Sidebar */
+.sidebar {
+  position: unset;
+  grid-area: sidebar;
+  background-color: #111;
+  padding: 20px;
+  padding-top: unset;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  height: 100vh;
+}
+
+aside h2 {
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+aside nav{
+  height: 80%;
+}
+
+aside ul {
+  list-style: none;
+  padding: 0;
+}
+
+aside li {
+  margin: 10px 0;
+  color: #9e9ea4;
+  cursor: pointer;
+  padding: 10px 0px;
+  font-size: 24px;
+  text-decoration: none;
+}
+
+aside a:hover {
+  color: #fff;
+}
+
+aside a {
+  text-decoration: none;
+  color: #9e9ea4;
+  font-size: 24px;
+}
+
+
+/* Header */
+.header {
+  grid-area: header;
+  background-color: #222;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+  color: #fff;
+}
+
+.nav-btn{
+  display: none;
+  background-color: transparent;
+  border-width: 0;
+}
+
+.side-top{
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Main Content */
+.main {
+  grid-area: main;
+  padding: 20px;
+  background-color: #1d2634;
+  color: #9e9ea4;
+  /* overflow-y: scroll; */
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: 1fr;
+    grid-template-rows: 60px auto auto;
+    grid-template-areas:
+    "header"
+    /* "sidebar" */
+    "main";
+  }
+
+  .nav-btn{
+    display: unset;
+  }
+
+  .sidebar {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    padding: 0;
+    max-width: 0;
+    z-index: 10;
+    transition: max-width 0.4s ease, padding 0.9s ease; 
+  }
+
+  .sidebar-open{
+    position: absolute;
+    max-width: 50%;
+    height: 100%;
+    padding: 20px;
+    background-color: #111;
+    padding: 20px;
+    padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    transition: all 0.5s ease-out;
+    z-index: 10;
+    transition: max-width 0.6s, opacity 1s, visibility 1.5s ease;
+  }
+
+}
